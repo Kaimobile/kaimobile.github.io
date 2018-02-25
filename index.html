@@ -18,9 +18,12 @@
     form {font-family: Microsoft YaHei; }
     input[type="text"] {margin:10px 0px 10px 2px; height: 30px; max-width: 350px; padding: 0px 6px 0px 6px; font-family:SimSun, Microsoft YaHei, Arial ; }
     input[type="submit"] {border: 0; padding: 2px 15px; height: 30px; width: 70px;} 
-    #InputTextBaidu {margin: 14px 0px 14px 0px; width: 60%; max-width: 300px;border: 1px solid rgb(51, 133, 255); }
+    
+    #InputTextBaidu {margin: 0px 0px 10px 0px; width: 60%; max-width: 300px;border: 1px solid rgb(51, 133, 255); }
+    #InputTextBaidu {background:url(https://www.baidu.com/img/bd_logo1.png) no-repeat 101% -50%; background-size: 53px 25px;}
     #InputSubmitBaidu {padding: 2px 20px; width: 90px; background-color:rgb(51, 133, 255); color: #ffffff;}
     #InputTextQihu {border: 1px solid rgb(25, 185, 85); }
+    #InputTextQihu {background:url(https://s.ssl.qhres.com/static/52166db8c450f68d.ico) no-repeat 98% center; background-size: 24px 24px; }
     #InputSubmitQihu {background-color:rgb(25, 185, 85); color: #ffffff;}
     #InputTextBing {border: 1px solid rgb(11, 132, 132); }
     #InputSubmitBing {background-color:rgb(11, 132, 132); color: #ffffff;}
@@ -29,11 +32,14 @@
     #InputTextSm {border: 1px solid rgb(255, 134, 8); }
     #InputSubmitSm {background-color:rgb(255, 134, 8); color: #ffffff;}
     #FooterStyle {color:rgb(78, 78, 78); text-align:right; font-size:75%; font-family:Georgia, Century, serif,Times New Roman, Times}
-    #CznnStyle { font-size: 65%; text-align: right; font-family: Microsoft YaHei, SimSun; }
+    #CznnStyle { font-size: 50%; text-align: right; font-family: Microsoft YaHei, SimSun; }
 
+    .SearchListStyle {float:left; }
+    .SearchLinkStyle {padding-top: 10px; padding: 2px 14px 2px 14px; font-size: 80%; }
+    .SearchLinkStyle:hover {color: #ffffff; background-color: rgb(51, 133, 255)}
     .SearchBoxBottom {max-height: 50px; vertical-align: middle; min-width: 24%;}
     .titlecolor1 {color:#ffffff; background-color: rgb(0, 140, 255); padding-top:14px; padding-bottom: 14px;  width:100px; font-size: 85%; }
-
+    
 </style>
 <body>
     <header style="margin:auto; width:75%">
@@ -47,20 +53,32 @@
     
     <table style="width:75%; border: 1px solid #a5a5a5;">
         <tr>
+            <td></td>
+            <td style="width:380px;">
+                <ul>
+                    <li class="SearchListStyle"><a class="SearchLinkStyle" href="http://music.baidu.com/">音乐</a></li>
+                    <li class="SearchListStyle"><a class="SearchLinkStyle" href="http://image.baidu.com/">图片</a></li>
+                    <li class="SearchListStyle"><a class="SearchLinkStyle" href="http://v.baidu.com/">视频</a></li>
+                    <li class="SearchListStyle"><a class="SearchLinkStyle" href="https://wenku.baidu.com/">文库</a></li>
+                    <li class="SearchListStyle"><a class="SearchLinkStyle" href="http://xueshu.baidu.com/">学术</a></li>
+                </ul>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
             <form method="get" action="https://www.baidu.com/s">
-                <td><input type="text" name="word" id="InputTextBaidu" baiduSug="1" placeholder="百度一下，你就知道" autofocus><input type="submit" value="Baidu" id="InputSubmitBaidu"></td>
+                <td colspan="3"><input type="text" name="word" id="InputTextBaidu" baiduSug="1" placeholder="百度一下，你就知道" autofocus><input type="submit" value="Baidu" id="InputSubmitBaidu"></td>
             </form>
         </tr>
     </table>
     <script charset="gbk" src="http://www.baidu.com/js/opensug.js"></script>
-
+    
     <table style="width:75%; border: 1px solid #a5a5a5; background-color:#f0f0f0">
         <tr>
             <td style="background-color:rgb(227, 248, 255)">
                 <ul>
                     <li class="titlecolor1">H5 ONLY</li>
                     <li><a href="https://m.weibo.cn/beta/">微博H5</a></li>
-                    <li><a href="http://www.miui.com/forum.php">MIUI论坛</a></li>
                     <li><a href="http://i.meituan.com">美团</a></li>
                 </ul>
             </td>
@@ -69,9 +87,11 @@
             <td>
                 <ul>
                     <li class="titlecolor1">NEWS</li>
+                    <li><a href="https://www.cgtn.com/">CGTN</a></li>
                     <li><a href="https://www.yahoo.com/">YAHOO!</a></li>
                     <li><a href="http://www.bbc.com/">BBC</a></li>
                     <li><a href="https://www.zhihu.com/">知乎</a></li>
+                    <li><a href="http://www.miui.com/forum.php">MIUI论坛</a></li>
                     <li><a href="https://weibo.com/">微博PC</a></li>
                 </ul>
             </td>
@@ -115,6 +135,7 @@
                     <li><a href="https://www.shanbay.com/">扇贝网</a></li>
                     <li><a href="http://study.163.com/">网易云课堂</a></li>
                     <li><a href="https://open.163.com/">网易公开课</a></li>
+                    <li><a href="http://www.cnki.net/">CNKI</a></li>
                     <li><a style="border-left:1px solid #9e9e9e" href="https://translate.google.cn/">Google翻译</a></li>
                     <li><a href="http://fanyi.youdao.com/">有道翻译</a></li>
                     <li><a href="http://www.iciba.com/">金山词典</a></li>
@@ -173,22 +194,22 @@
             <td>
                 <ul>
                     <li class="SearchBoxBottom">
-                        <form method="get" action="https://www.so.com/s">
-                            <input type="text" name="q" id="InputTextQihu"><input type="submit" value="SO" id="InputSubmitQihu">
+                        <form method="get" action="https://www.so.com/s" autocomplete="off">
+                            <input type="text" name="q" autocomplete="" id="InputTextQihu"><input type="submit" value="SO" id="InputSubmitQihu">
                         </form>
                     </li>
                     <li class="SearchBoxBottom">
-                        <form method="get" action="https://cn.bing.com/search">
+                        <form method="get" action="https://cn.bing.com/search" autocomplete="off">
                             <input type="text" name="q" id="InputTextBing"><input type="submit" value="Bing" id="InputSubmitBing">
                         </form>
                     </li>
                     <li class="SearchBoxBottom">
-                        <form method="get" action="https://www.sogou.com/web">
+                        <form method="get" action="https://www.sogou.com/web" autocomplete="off">
                             <input type="text" name="query" id="InputTextSogou"><input type="submit" value="Sogou" id="InputSubmitSogou">
                         </form>
                     </li>
                     <li class="SearchBoxBottom">
-                        <form method="get" action="http://m.sm.cn/s">
+                        <form method="get" action="http://m.sm.cn/s" autocomplete="off">
                             <input type="text" name="q" id="InputTextSm"><input type="submit" value="Sm" id="InputSubmitSm">
                         </form>
                     </li>
@@ -197,7 +218,7 @@
         </tr>
     </table>
 
-    
+
     <footer>
         <table style="width:75%; border: 1px solid #a5a5a5;">
         </table>
@@ -246,5 +267,7 @@ V0151   20180224
 V0155   20180225
     1.添加站长之家统计
     2.添加百度搜索框提示功能
-//加入内部网页，实现微博日程天气等功能//实现智能检查网址，排序//实现文件夹//广告//图片
+    3.百度搜索框添加更多搜索索引
+    4.修复搜索框自动填充
+//加入内部网页，实现微博日程天气等功能//实现智能检查网址，排序//实现文件夹//广告//图片//搜索引擎收录
 -->
