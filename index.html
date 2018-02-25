@@ -5,21 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.4, minimum-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <style>
-    div {font-family:Microsoft YaHei, Arial, Helvetica, sans-serif; }
-    td {text-align: center;vertical-align: middle; width:fit-content; border: 0px solid yellow;}
-    td div {padding-top:2%; padding-bottom:2%; }
-    td p {font-family: Arial, Helvetica, sans-serif; padding-top:0.5%; padding-bottom:0.5%;}
+    div {font-family:Helvetica, Microsoft YaHei, Arial,  sans-serif; }
+    td {text-align: center;vertical-align: middle;  border: 0px solid yellow;}
+    td p {font-family:  Helvetica,Arial, sans-serif; padding-top:0.5%; padding-bottom:0.5%;}
     a {text-decoration: none; }
     ul {list-style-type:none ; padding:0; margin:0;  }
-    li {float:left; font-family: Microsoft YaHei, Arial, 宋体; border: 0px solid red;}
+    li {float:left; font-family: Microsoft YaHei, Arial, SimSun; border: 0px solid red;}
     li a {color:black; text-align: center; padding:14px; margin: 0%;  display:block;}
     li a:hover {color:#ffffff; background-color: #4CAF50; }
     li a:active {color:rgb(236, 236, 236); background-color: #4CAF50; }
     table {margin:1% auto;}
     form {font-family: Microsoft YaHei; }
-    input[type="text"] {margin:10px 0px 10px 2px; height: 30px; max-width: 350px; }
+    input[type="text"] {margin:10px 0px 10px 2px; height: 30px; max-width: 350px; padding: 0px 6px 0px 6px; font-family:SimSun, Microsoft YaHei, Arial ; }
     input[type="submit"] {border: 0; padding: 2px 15px; height: 30px; width: 70px;} 
-    #InputTextBaidu {margin: 14px 0px 14px 0px; width: 60%; max-width: 300px; border: 1px solid rgb(51, 133, 255); }
+    #InputTextBaidu {margin: 14px 0px 14px 0px; width: 60%; max-width: 300px;border: 1px solid rgb(51, 133, 255); }
     #InputSubmitBaidu {padding: 2px 20px; width: 90px; background-color:rgb(51, 133, 255); color: #ffffff;}
     #InputTextQihu {border: 1px solid rgb(25, 185, 85); }
     #InputSubmitQihu {background-color:rgb(25, 185, 85); color: #ffffff;}
@@ -29,9 +28,11 @@
     #InputSubmitSogou {background-color:rgb(253, 104, 83); color: #ffffff;}
     #InputTextSm {border: 1px solid rgb(255, 134, 8); }
     #InputSubmitSm {background-color:rgb(255, 134, 8); color: #ffffff;}
+    #FooterStyle {color:rgb(78, 78, 78); text-align:right; font-size:75%; font-family:Georgia, Century, serif,Times New Roman, Times}
+    #CznnStyle { font-size: 65%; text-align: right; font-family: Microsoft YaHei, SimSun; }
 
-    .SearchBoxBottom {max-height: 50px; padding:0; vertical-align: middle; min-width: 24%;}
-    .titlecolor1 {color:#ffffff; background-color: rgb(0, 140, 255); padding-top:14px; padding-bottom: 14px;  width:100px;  }
+    .SearchBoxBottom {max-height: 50px; vertical-align: middle; min-width: 24%;}
+    .titlecolor1 {color:#ffffff; background-color: rgb(0, 140, 255); padding-top:14px; padding-bottom: 14px;  width:100px; font-size: 85%; }
 
 </style>
 <body>
@@ -47,10 +48,11 @@
     <table style="width:75%; border: 1px solid #a5a5a5;">
         <tr>
             <form method="get" action="https://www.baidu.com/s">
-                <td><input type="text" name="word" id="InputTextBaidu" autofocus><input type="submit" value="Baidu" id="InputSubmitBaidu"></td>
+                <td><input name=tn type=HIDDEN value=baidu><input type="text" name="word" id="InputTextBaidu" baiduSug="1" placeholder="百度一下，你就知道" autofocus><input type="submit" value="Baidu" id="InputSubmitBaidu"></td>
             </form>
         </tr>
     </table>
+    <script charset="gbk" src="http://www.baidu.com/js/opensug.js"></script>
 
     <table style="width:75%; border: 1px solid #a5a5a5; background-color:#f0f0f0">
         <tr>
@@ -66,19 +68,29 @@
         <tr>
             <td>
                 <ul>
-                    <li class="titlecolor1">NEWS & IT</li>
+                    <li class="titlecolor1">NEWS</li>
+                    <li><a href="https://www.yahoo.com/">YAHOO!</a></li>
+                    <li><a href="http://www.bbc.com/">BBC</a></li>
                     <li><a href="https://www.zhihu.com/">知乎</a></li>
                     <li><a href="https://weibo.com/">微博PC</a></li>
-                    <li><a style="border-left:1px solid #9e9e9e" href="http://www.zol.com.cn/">ZOL</a></li>
-                    <li><a href="https://www.ithome.com/">IT之家</a></li>
-                    <li><a href="http://www.zealer.com/">ZEALER</a></li>
                 </ul>
             </td>
         </tr>
         <tr>
             <td>
                 <ul>
-                    <li class="titlecolor1">ECONOMIC</li>
+                    <li class="titlecolor1">IT</li>
+                    <li><a href="http://www.zol.com.cn/">ZOL</a></li>
+                    <li><a href="https://www.ithome.com/">IT之家</a></li>
+                    <li><a href="http://www.zealer.com/">ZEALER</a></li>
+                    <li><a href="http://www.mydrivers.com/">快科技</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li class="titlecolor1">ECONOMICS</li>
                     <li><a href="https://xueqiu.com/">雪球</a></li>
                     <li><a href="https://wallstreetcn.com/">华尔街见闻</a></li>
                 </ul>
@@ -87,17 +99,10 @@
         <tr>
             <td>
                 <ul>
-                    <li class="titlecolor1">SHOPPING</li>
+                    <li class="titlecolor1">RECREATION</li>
                     <li><a href="https://www.taobao.com/">淘宝</a></li>
                     <li><a href="https://www.jd.com/">京东</a></li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <ul>
-                    <li class="titlecolor1">VIDEO</li>
-                    <li><a href="http://www.iqiyi.com/">爱奇艺</a></li>
+                    <li><a style="border-left:1px solid #9e9e9e" href="http://www.iqiyi.com/">爱奇艺</a></li>
                     <li><a href="http://www.youku.com/">优酷</a></li>
                     <li><a href="https://v.qq.com/">腾讯视频</a></li>
                 </ul>
@@ -110,17 +115,26 @@
                     <li><a href="https://www.shanbay.com/">扇贝网</a></li>
                     <li><a href="http://study.163.com/">网易云课堂</a></li>
                     <li><a href="https://open.163.com/">网易公开课</a></li>
+                    <li><a style="border-left:1px solid #9e9e9e" href="https://translate.google.cn/">Google翻译</a></li>
+                    <li><a href="http://fanyi.youdao.com/">有道翻译</a></li>
+                    <li><a href="http://www.iciba.com/">金山词典</a></li>
                 </ul>
             </td>
         </tr>
         <tr>
             <td>
                 <ul>
-                    <li class="titlecolor1">PHOTO</li>
+                    <li class="titlecolor1">COLLECTION</li>
                     <li><a href="http://www.w3school.com.cn/">W3SCHOOL</a></li>
                     <li><a href="http://www.divcss5.com/">DIVCSS5</a></li>
                     <li><a href="http://www.runoob.com/">RUNOOB</a></li>
                     <li><a href="https://github.com/">GITHUB</a></li>
+                    <li><a href="http://html5test.com/">H5TEST</a></li>
+                    <li><a href="http://www.mydrivers.com/zhuanti/tianti/cpu/">CPU性能图</a></li>
+                    <li><a href="http://www.mydrivers.com/zhuanti/tianti/gpu/">GPU性能图</a></li>
+                    <li><a href="http://www.mydrivers.com/zhuanti/tianti/01/">ARM性能图</a></li>
+                    <li><a href="https://haveibeenpwned.com/Passwords">Pwned Passwords</a></li>
+                    <li><a href="http://www.baimin.com/world/557.htm">国外搜索引擎</a></li>
                 </ul>
             </td>
         </tr> 
@@ -160,7 +174,7 @@
                 <ul>
                     <li class="SearchBoxBottom">
                         <form method="get" action="https://www.so.com/s">
-                            <input type="text" name="q" id="InputTextQihu"><input type="submit" value="360SO" id="InputSubmitQihu">
+                            <input type="text" name="q" id="InputTextQihu"><input type="submit" value="SO" id="InputSubmitQihu">
                         </form>
                     </li>
                     <li class="SearchBoxBottom">
@@ -185,13 +199,25 @@
 
     
     <footer>
-        <p style="color:rgb(0, 0, 0); text-align:center; font-family:'Times New Roman', Times, serif">
-            Version 1.5<br>
-            Latest Update 2018-2-9<br>
-            Contact Me：kaikai1996k@gmail.com<br>
-            Copyright &copy Kaimobile 2018, all rights reserved<br>
-        </p>
+        <table style="width:75%; border: 1px solid #a5a5a5;">
+        </table>
+        <table style="width:75%;">
+            <tr>
+                <td>                
+                    <p id="FooterStyle">
+                        Version 1.55<br>
+                        Latest Update 2018-2-25<br>
+                        Contact Me：kaikai1996k@gmail.com<br>
+                        Copyright &copy Kaimobile 2018, all rights reserved
+                    </p>
+                    <p id="CznnStyle">
+                        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272943866'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1272943866%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+                    </p>
+                </td>
+            </tr>
+        </table>
     </footer>
+    
 </body>
 </html>
 <!--
@@ -210,9 +236,15 @@ V0110   20180207
     2.优化移动端浏览效果
     3.改进网页配色
     4.调整部分导航顺序
-V0150   
+V0150   20180209
     1.加入搜索框功能
     2.优化部分代码
     3.开始使用ID取代部分class
-//加入各种搜索框//加入内部网页，实现微博日程天气等功能//实现智能检查网址，排序//实现文件夹
+V0151   20180224
+    1.添加网址，改变部分布局
+    2.添加搜索框未激活时文字
+V0155   20180225
+    1.添加站长之家统计
+    2.添加百度搜索框提示功能
+//加入内部网页，实现微博日程天气等功能//实现智能检查网址，排序//实现文件夹//广告//图片
 -->
