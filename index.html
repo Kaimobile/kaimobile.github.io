@@ -2,7 +2,7 @@
 <head>
     <title>Navigation Website</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.4, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.3, minimum-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <style>
     div {font-family:Helvetica, Microsoft YaHei, Arial,  sans-serif; }
@@ -11,34 +11,33 @@
     a {text-decoration: none; }
     ul {list-style-type:none ; padding:0; margin:0;  }
     li {float:left; font-family: Microsoft YaHei, Arial, SimSun; border: 0px solid red;}
-    li a {color:black; text-align: center; padding:14px; margin: 0%;  display:block;}
+    li a {color:black; text-align: center; padding:12px 12px 12px 12px; margin: 0%;  display:block; font-size: 90%; }
     li a:hover {color:#ffffff; background-color: #4CAF50; }
     li a:active {color:rgb(236, 236, 236); background-color: #4CAF50; }
     table {margin:1% auto;}
     form {font-family: Microsoft YaHei; }
-    input[type="text"] {margin:10px 0px 10px 2px; height: 30px; max-width: 350px; padding: 0px 6px 0px 6px; font-family:SimSun, Microsoft YaHei, Arial ; }
-    input[type="submit"] {border: 0; padding: 2px 15px; height: 30px; width: 70px;} 
+    input[type="text"] {margin: 10px 0px 10px 2px;  height: 28px; max-width: 350px; padding: 0px 6px 0px 6px; font-family:SimSun, Microsoft YaHei, Arial ; }
+    input[type="submit"] {border: 0; padding: 2px 10px; height: 28px; width: 70px;} 
     
-    #InputTextBaidu {margin: 0px 0px 10px 0px; width: 70%; max-width: 300px;border: 1px solid rgb(51, 133, 255); }
-    #InputTextBaidu {background:url(https://www.baidu.com/img/bd_logo1.png) no-repeat 101% -50%; background-size: 53px 25px;}
-    #InputSubmitBaidu {padding: 2px 15px; width: 70px; background-color:rgb(51, 133, 255); color: #ffffff;}
-    #InputTextQihu {border: 1px solid rgb(25, 185, 85); }
-    #InputTextQihu {background:url(https://s.ssl.qhres.com/static/52166db8c450f68d.ico) no-repeat 98% center; background-size: 24px 24px; }
-    #InputSubmitQihu {background-color:rgb(25, 185, 85); color: #ffffff;}
-    #InputTextBing {border: 1px solid rgb(11, 132, 132); }
-    #InputSubmitBing {background-color:rgb(11, 132, 132); color: #ffffff;}
-    #InputTextSogou {border: 1px solid rgb(253, 104, 83); }
-    #InputSubmitSogou {background-color:rgb(253, 104, 83); color: #ffffff;}
-    #InputTextSm {border: 1px solid rgb(255, 134, 8); }
-    #InputSubmitSm {background-color:rgb(255, 134, 8); color: #ffffff;}
+    #InputTextBaidu {margin: 0px 0px 10px 0px; width: 70%; max-width: 300px; height: 33px; border: 1px solid rgb(51, 133, 255); font-size: 95%; }
+    #InputTextBaidu {background:url(https://www.baidu.com/img/bd_logo1.png) no-repeat 101% -10%; background-size: 53px 25px; }
+    #InputSubmitBaidu {background-color:rgb(51, 133, 255); color: #ffffff; height: 33px; font-size: 95%; }
     #FooterStyle {color:rgb(78, 78, 78); text-align:right; font-size:75%; font-family:Georgia, Century, serif,Times New Roman, Times}
     #CznnStyle { font-size: 50%; text-align: right; font-family: Microsoft YaHei, SimSun; }
 
     .SearchListStyle {float:left; }
-    .SearchLinkStyle {padding-top: 10px; padding: 4px 10px 4px 10px; font-size: 80%; }
-    .SearchLinkStyle:hover {color: #ffffff; background-color: rgb(51, 133, 255)}
+    .SearchLinkBaiduStyle {padding: 4px 10px 4px 4px; font-size: 80%; border-left:1px solid rgb(51, 133, 255); }
+    .SearchLinkBaiduStyle:hover {color: #ffffff; background-color: rgb(51, 133, 255);}
+    .SearchLinkQihuStyle {padding: 4px 10px 4px 4px; font-size: 80%; border-left:1px solid rgb(25, 185, 85); }
+    .SearchLinkQihuStyle:hover {color: #ffffff; background-color:rgb(25, 185, 85);}
+    .SearchLinkBingStyle {padding: 4px 10px 4px 4px; font-size: 80%; border-left:1px solid  rgb(11, 132, 132);}
+    .SearchLinkBingStyle:hover {color: #ffffff; background-color:rgb(11, 132, 132);}
+    .SearchLinkSogouStyle {padding: 4px 10px 4px 4px; font-size: 80%; border-left:1px solid rgb(253, 104, 83);}
+    .SearchLinkSogouStyle:hover {color: #ffffff; background-color:rgb(253, 104, 83);}
+    .SearchLinkSmStyle {padding: 4px 10px 4px 4px; font-size: 80%; border-left:1px solid rgb(255, 134, 8);}
+    .SearchLinkSmStyle:hover {color: #ffffff; background-color:rgb(255, 134, 8);}
     .SearchBoxBottom {max-height: 50px; vertical-align: middle; min-width: 24%;}
-    .titlecolor1 {color:#ffffff; background-color: rgb(0, 140, 255); padding-top:14px; padding-bottom: 14px;  width:100px; font-size: 85%; }
+    .titlecolor1 {color:#ffffff; background-color: rgb(0, 140, 255); padding-top:12px; padding-bottom: 12px;  width:100px; font-size: 90%; }
     
 </style>
 <body>
@@ -51,16 +50,21 @@
     </table>
 
     
-    <table style="width:75%; border: 1px solid #a5a5a5;">
+    <table style="width:75%; border: 0px solid #a5a5a5;">
         <tr>
             <td></td>
-            <td style="width:350px;">
+            <td style="width:420px; height:30px;">
                 <ul>
-                    <li class="SearchListStyle"><a class="SearchLinkStyle" href="http://music.baidu.com/">音乐</a></li>
-                    <li class="SearchListStyle"><a class="SearchLinkStyle" href="http://image.baidu.com/">图片</a></li>
-                    <li class="SearchListStyle"><a class="SearchLinkStyle" href="http://v.baidu.com/">视频</a></li>
-                    <li class="SearchListStyle"><a class="SearchLinkStyle" href="https://wenku.baidu.com/">文库</a></li>
-                    <li class="SearchListStyle"><a class="SearchLinkStyle" href="http://xueshu.baidu.com/">学术</a></li>
+                    <li class="SearchListStyle"><a class="SearchLinkBaiduStyle" href="http://image.baidu.com/">图片</a></li>
+                    <li class="SearchListStyle"><a class="SearchLinkBaiduStyle" href="http://v.baidu.com/">视频</a></li>
+                    <li class="SearchListStyle"><a class="SearchLinkBaiduStyle" href="https://wenku.baidu.com/">文库</a></li>
+                    <li class="SearchListStyle"><a class="SearchLinkBaiduStyle" href="http://xueshu.baidu.com/">学术</a></li>
+                    <li class="SearchListStyle"><a class="SearchLinkBaiduStyle" href="https://tieba.baidu.com/">贴吧</a></li>
+                    <li class="SearchListStyle"><a class="SearchLinkQihuStyle" href="https://www.so.com/">SO</a></li>
+                    <li class="SearchListStyle"><a class="SearchLinkBingStyle" href="https://www.bing.com/">国内</a></li>
+                    <li class="SearchListStyle"><a class="SearchLinkBingStyle" href="http://global.bing.com/">国际</a></li>
+                    <li class="SearchListStyle"><a class="SearchLinkSogouStyle" href="https://www.sogou.com/">Sogou</a></li>
+                    <li class="SearchListStyle"><a class="SearchLinkSmStyle" href="http://m.sm.cn/">神马</a></li>
                 </ul>
             </td>
             <td></td>
@@ -73,7 +77,7 @@
     </table>
     <script charset="gbk" src="http://www.baidu.com/js/opensug.js"></script>
     
-    <table style="width:75%; border: 1px solid #a5a5a5; background-color:#f0f0f0">
+    <table style="width:75%; min-width:370px;  border: 1px solid #a5a5a5; background-color:#f0f0f0">
         <tr>
             <td style="background-color:rgb(227, 248, 255)">
                 <ul>
@@ -189,35 +193,6 @@
         </tr>
     </table>
     
-    <table style="width:75%; border: 0px solid #a5a5a5;">
-        <tr>
-            <td>
-                <ul>
-                    <li class="SearchBoxBottom">
-                        <form method="get" action="https://www.so.com/s" autocomplete="off">
-                            <input type="text" name="q" autocomplete="" id="InputTextQihu"><input type="submit" value="SO" id="InputSubmitQihu">
-                        </form>
-                    </li>
-                    <li class="SearchBoxBottom">
-                        <form method="get" action="https://cn.bing.com/search" autocomplete="off">
-                            <input type="text" name="q" id="InputTextBing"><input type="submit" value="Bing" id="InputSubmitBing">
-                        </form>
-                    </li>
-                    <li class="SearchBoxBottom">
-                        <form method="get" action="https://www.sogou.com/web" autocomplete="off">
-                            <input type="text" name="query" id="InputTextSogou"><input type="submit" value="Sogou" id="InputSubmitSogou">
-                        </form>
-                    </li>
-                    <li class="SearchBoxBottom">
-                        <form method="get" action="http://m.sm.cn/s" autocomplete="off">
-                            <input type="text" name="q" id="InputTextSm"><input type="submit" value="Sm" id="InputSubmitSm">
-                        </form>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-    </table>
-
     <footer>
         <table style="width:75%; border: 1px solid #a5a5a5;">
         </table>
@@ -225,8 +200,8 @@
             <tr>
                 <td>                
                     <p id="FooterStyle">
-                        Version 1.55<br>
-                        Latest Update 2018-2-25<br>
+                        Version 1.56<br>
+                        Latest Update 2018-2-26<br>
                         Contact Me：kaikai1996k@gmail.com<br>
                         Copyright &copy Kaimobile 2018, all rights reserved
                     </p>
@@ -268,5 +243,8 @@ V0155   20180225
     2.添加百度搜索框提示功能
     3.百度搜索框添加更多搜索索引
     4.修复搜索框自动填充
-//加入内部网页，实现微博日程天气等功能//实现智能检查网址，排序//实现文件夹//广告//图片//搜索引擎收录
+V0156   20180226
+    1.删除多余的搜索框
+    2.优化移动端显示效果
+//加入内部网页，实现微博日程天气等功能//实现智能检查网址，排序//实现文件夹//广告//图片//BBC
 -->
