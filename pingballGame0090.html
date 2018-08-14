@@ -1,0 +1,262 @@
+<html>
+<head>
+    <title>Pingball Game</title>
+</head>
+<style>
+    #mainBox {
+        width: 1200px;
+        height: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: solid;
+        border-width: 1px;
+    }
+    .balls{
+        position: absolute;
+    }
+    #bottomBar {
+        position: absolute;
+        top: 450px;
+        left: 900px;
+    }
+    #pingball {
+        position: absolute;
+        top: 300px;
+        left:300px;
+    }
+</style>
+<body>
+    <div id='mainBox'>
+        <canvas class='balls'>1</canvas>
+        <canvas class='balls'>2</canvas>
+        <canvas class='balls'>3</canvas>
+        <canvas class='balls'>4</canvas>
+        <canvas class='balls'>5</canvas>
+        <canvas class='balls'>6</canvas>
+        <canvas class='balls'>7</canvas>
+        <canvas class='balls'>8</canvas>
+        <canvas class='balls'>9</canvas>
+        <canvas class='balls'>10</canvas>
+        <canvas class='balls'>11</canvas>
+        <canvas class='balls'>12</canvas>
+        <canvas class='balls'>13</canvas>
+        <canvas class='balls'>14</canvas>
+        <canvas class='balls'>15</canvas>
+        <canvas class='balls'>16</canvas>
+        <canvas class='balls'>17</canvas>
+        <canvas class='balls'>18</canvas>
+        <canvas class='balls'>19</canvas>
+        <canvas class='balls'>20</canvas>
+        <canvas class='balls'>21</canvas>
+
+        <canvas class='balls'>1</canvas>
+        <canvas class='balls'>2</canvas>
+        <canvas class='balls'>3</canvas>
+        <canvas class='balls'>4</canvas>
+        <canvas class='balls'>5</canvas>
+        <canvas class='balls'>6</canvas>
+        <canvas class='balls'>7</canvas>
+        <canvas class='balls'>8</canvas>
+        <canvas class='balls'>9</canvas>
+        <canvas class='balls'>10</canvas>
+        <canvas class='balls'>11</canvas>
+        <canvas class='balls'>12</canvas>
+        <canvas class='balls'>13</canvas>
+        <canvas class='balls'>14</canvas>
+        <canvas class='balls'>15</canvas>
+        <canvas class='balls'>16</canvas>
+        <canvas class='balls'>17</canvas>
+        <canvas class='balls'>18</canvas>
+        <canvas class='balls'>19</canvas>
+        <canvas class='balls'>20</canvas>
+        <canvas class='balls'>21</canvas>
+
+        <canvas class='balls'>1</canvas>
+        <canvas class='balls'>2</canvas>
+        <canvas class='balls'>3</canvas>
+        <canvas class='balls'>4</canvas>
+        <canvas class='balls'>5</canvas>
+        <canvas class='balls'>6</canvas>
+        <canvas class='balls'>7</canvas>
+        <canvas class='balls'>8</canvas>
+        <canvas class='balls'>9</canvas>
+        <canvas class='balls'>10</canvas>
+        <canvas class='balls'>11</canvas>
+        <canvas class='balls'>12</canvas>
+        <canvas class='balls'>13</canvas>
+        <canvas class='balls'>14</canvas>
+        <canvas class='balls'>15</canvas>
+        <canvas class='balls'>16</canvas>
+        <canvas class='balls'>17</canvas>
+        <canvas class='balls'>18</canvas>
+        <canvas class='balls'>19</canvas>
+        <canvas class='balls'>20</canvas>
+        <canvas class='balls'>21</canvas>
+
+        <canvas class='balls'>1</canvas>
+        <canvas class='balls'>2</canvas>
+        <canvas class='balls'>3</canvas>
+        <canvas class='balls'>4</canvas>
+        <canvas class='balls'>5</canvas>
+        <canvas class='balls'>6</canvas>
+        <canvas class='balls'>7</canvas>
+        <canvas class='balls'>8</canvas>
+        <canvas class='balls'>9</canvas>
+        <canvas class='balls'>10</canvas>
+        <canvas class='balls'>11</canvas>
+        <canvas class='balls'>12</canvas>
+        <canvas class='balls'>13</canvas>
+        <canvas class='balls'>14</canvas>
+        <canvas class='balls'>15</canvas>
+        <canvas class='balls'>16</canvas>
+        <canvas class='balls'>17</canvas>
+        <canvas class='balls'>18</canvas>
+        <canvas class='balls'>19</canvas>
+        <canvas class='balls'>20</canvas>
+        <canvas class='balls'>21</canvas>
+
+        <canvas class='balls'>1</canvas>
+        <canvas class='balls'>2</canvas>
+        <canvas class='balls'>3</canvas>
+        <canvas class='balls'>4</canvas>
+        <canvas class='balls'>5</canvas>
+        <canvas class='balls'>6</canvas>
+        <canvas class='balls'>7</canvas>
+        <canvas class='balls'>8</canvas>
+        <canvas class='balls'>9</canvas>
+        <canvas class='balls'>10</canvas>
+        <canvas class='balls'>11</canvas>
+        <canvas class='balls'>12</canvas>
+        <canvas class='balls'>13</canvas>
+        <canvas class='balls'>14</canvas>
+        <canvas class='balls'>15</canvas>
+        <canvas class='balls'>16</canvas>
+        <canvas class='balls'>17</canvas>
+        <canvas class='balls'>18</canvas>
+        <canvas class='balls'>19</canvas>
+        <canvas class='balls'>20</canvas>
+        <canvas class='balls'>21</canvas>
+
+        
+        <canvas id='pingball' width="50" height="50">00</canvas>
+
+        <canvas id='bottomBar' width="200" height="20" style="border:1px solid #000000;">FF</canvas>
+    </div>
+    <footer>
+        <div>
+            <p style='border-style: solid; border-width: 1px; '>Pingball Game<br>Version 0.90<br>Copyright &copy Kaimobile</p>
+        </div>
+    </footer>
+</body>
+<script>
+    //configure the position
+    ballsWidth = 50;
+    pingballWidth = 50;
+    bottomBarWidth = 200;
+    bottomBarHeight = 20;
+    mainBoxWidth = 1200;
+    mainBoxHeight = 600;
+    mainBoxLeft = Math.round((document.documentElement.clientWidth - mainBoxWidth)/2);
+    mainBoxRight = mainBoxLeft + mainBoxWidth;
+    mainBoxTop = 10;
+    mainBoxBottom = mainBoxHeight - mainBoxTop;
+    //set the parameter
+    ballsXMargin = 7;
+    ballsYMargin = 3;
+    ballsArray = new Array();
+    for(i=0;i<5;i++){
+        ballsArray[i] = new Array();
+        for(j=0;j<21;j++){
+            ballsArray[i][j] = new Object();
+            ballsArray[i][j].x = mainBoxLeft + (ballsWidth + ballsXMargin) * j;
+            ballsArray[i][j].y = mainBoxTop + (ballsWidth + ballsYMargin) * i;
+            ballsArray[i][j].life = 1;
+        }
+    }
+    //initialization for balls
+    for(i=0;i<document.getElementsByClassName('balls').length;i++){
+        c = document.getElementsByClassName('balls')[i];
+        c.width = 50;
+        c.height = 50;
+        c.style.left = ballsArray[Math.floor(i/21)][i%21].x;
+        c.style.top = ballsArray[Math.floor(i/21)][i%21].y;
+        if(ballsArray[Math.floor(i/21)][i%21].life < 1){
+            c.style.visibility = 'hidden';
+        }
+        cxt = c.getContext('2d');
+        cxt.fillStyle = '#FF0000';
+        cxt.beginPath();
+        cxt.arc(25,25,25,0,Math.PI*2,true);
+        cxt.closePath();
+        cxt.fill();
+    }
+    //initialization for buttomBar
+    bottomBarObj = document.getElementById('bottomBar');
+    bottomBarObj.style.top = mainBoxHeight - bottomBarHeight - pingballWidth;
+    bottomBarObj.style.left = Math.round((document.documentElement.clientWidth - bottomBarWidth) / 2);
+    bottomBarObjxt = bottomBarObj.getContext('2d');
+    bottomBarObjxt.fillStyle='#00FF00';
+    bottomBarObjxt.fillRect(0,0,200,20);
+    //initialization for pingball
+    pingballObj = document.getElementById('pingball');
+    pingballObj.style.top = parseInt(bottomBarObj.style.top) - pingballWidth;
+    pingballObj.style.left = parseInt(bottomBarObj.style.left) + Math.round((bottomBarWidth - pingballWidth)/2);
+    pingballObjxt = pingballObj.getContext('2d');
+    pingballObjxt.fillStyle = '#0000FF';
+    pingballObjxt.beginPath();
+    pingballObjxt.arc(25,25,25,0,Math.PI*2,true);
+    pingballObjxt.closePath();
+    pingballObjxt.fill();
+    //move buttomBar
+    buttomBarSpeed = 50;
+    document.onkeydown = function(event){
+        kc = event.keyCode;
+        if(kc == 37 && parseInt(bottomBarObj.style.left) > mainBoxLeft){
+            bottomBarObj.style.left = parseInt(bottomBarObj.style.left) - buttomBarSpeed;
+        }else if(kc == 39 && parseInt(bottomBarObj.style.left) < (mainBoxRight - bottomBarWidth)){
+            bottomBarObj.style.left = parseInt(bottomBarObj.style.left) + buttomBarSpeed;
+        }
+    }
+    //move pingball
+    pingballSpeed = 1;
+    pingballTime = setInterval(movePingball,1);
+    pingballXSpeed = pingballSpeed;
+    pingballYSpeed = pingballSpeed;
+    function movePingball(){
+        if(parseInt(pingballObj.style.left) > (mainBoxRight - pingballWidth)){
+            pingballXSpeed = -pingballXSpeed;
+        }else if(parseInt(pingballObj.style.left) < mainBoxLeft){
+            pingballXSpeed = -pingballXSpeed;
+        }else if(parseInt(pingballObj.style.top) < mainBoxTop + 5*(ballsWidth+ballsYMargin)){
+            if(parseInt(pingballObj.style.top) < mainBoxTop){
+                pingballYSpeed = -pingballYSpeed;
+            }else if(tellIfPing(parseInt(pingballObj.style.left),parseInt(pingballObj.style.top))){
+            pingballYSpeed = -pingballYSpeed;
+            }
+        }else if(parseInt(pingballObj.style.top) > (parseInt(bottomBarObj.style.top) - pingballWidth)){
+            if(parseInt(bottomBarObj.style.left) < parseInt(pingballObj.style.left) && parseInt(pingballObj.style.left) < parseInt(bottomBarObj.style.left) + bottomBarWidth){
+                pingballYSpeed = -pingballYSpeed;
+            }else{
+                //pingballYSpeed = -pingballYSpeed;
+                alert('GG');
+            }
+        }
+        
+        pingballObj.style.left = parseInt(pingballObj.style.left) + pingballXSpeed;
+        pingballObj.style.top = parseInt(pingballObj.style.top) + pingballYSpeed;
+    }
+    //create ball position 
+    function tellIfPing(xpx,ypx){
+        var tempi = Math.floor((xpx-mainBoxLeft)/(pingballWidth+ballsXMargin));
+        var tempj = Math.floor((ypx-mainBoxTop)/(pingballWidth+ballsYMargin));
+        if (ballsArray[tempj][tempi].life < 1){
+            return 0;                                   //No balls
+        }else{
+            ballsArray[tempj][tempi].life -= 1;
+            var tempc = document.getElementsByClassName('balls')[tempj*21+tempi];
+            tempc.style.visibility = 'hidden';
+            return 1;                                   //ping back
+        }
+    }
+</script>
+</html>
