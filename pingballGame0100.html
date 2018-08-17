@@ -1,0 +1,821 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Pingball Game</title>
+</head>
+<style>
+    #gameBox {
+        width: 1200px;
+        height: 600px;
+        margin: auto;
+        border: 1px solid white;
+    }
+    #mainBox {
+        position: relative;
+        float: left;
+        width: 1000px;
+        height: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: solid;
+        border-width: 1px;
+    }
+    #configBox{
+        position: relative;
+        float: left;
+        margin:auto;
+        left: 5px;
+        width: 190px;
+        height: 600px;
+        border:1px solid #000000;
+    }
+    #scoreBox{
+        float:none;
+        position: relative;
+        display: block;
+    }
+    #scoreBoxLeft{
+        position: relative;
+        display: inline;
+    }
+    #scoreBoxRight{
+        position: relative;
+        display: inline;
+    }
+    #timeBox{
+        float: none;
+        display: block;
+    }
+    #timeBoxLeft{
+        position: relative;
+        display: inline;
+    }
+    #timeBoxRight{
+        position: relative;
+        display: inline;
+    }
+    .stateBoxClass{
+        position: relative;
+        display: inline;
+    }
+    .numBoxClass{
+        position: relative;
+        display: inline;
+    }
+    #levelControlBox{
+        position: relative;
+        display: inline;
+    }
+    #endBox{
+        width: 1200px;
+        margin: auto;
+        position: relative;
+        top: 10px;
+        border: 0px solid black;
+    }
+    .balls{
+        position: absolute;
+    }
+    #bottomBar {
+        position: absolute;
+        top: 450px;
+        left: 900px;
+        border: 1px solid #CC99AF;
+    }
+    #pingball {
+        position: absolute;
+        top: 300px;
+        left:300px;
+    }
+</style>
+<body>
+    <div id="gameBox">
+        <div id='mainBox'>
+            <canvas class='balls'>1</canvas> <canvas class='balls'>2</canvas> <canvas class='balls'>3</canvas> <canvas class='balls'>4</canvas> <canvas class='balls'>5</canvas>
+            <canvas class='balls'>6</canvas> <canvas class='balls'>7</canvas> <canvas class='balls'>8</canvas> <canvas class='balls'>9</canvas> <canvas class='balls'>10</canvas>
+            <canvas class='balls'>11</canvas> <canvas class='balls'>12</canvas> <canvas class='balls'>13</canvas> <canvas class='balls'>14</canvas> <canvas class='balls'>15</canvas>
+            <canvas class='balls'>16</canvas> <canvas class='balls'>17</canvas> <canvas class='balls'>18</canvas> <canvas class='balls'>19</canvas> <canvas class='balls'>20</canvas>
+            <canvas class='balls'>21</canvas> 
+            <canvas class='balls'>1</canvas> <canvas class='balls'>2</canvas> <canvas class='balls'>3</canvas> <canvas class='balls'>4</canvas> <canvas class='balls'>5</canvas>
+            <canvas class='balls'>6</canvas> <canvas class='balls'>7</canvas> <canvas class='balls'>8</canvas> <canvas class='balls'>9</canvas> <canvas class='balls'>10</canvas>
+            <canvas class='balls'>11</canvas> <canvas class='balls'>12</canvas> <canvas class='balls'>13</canvas> <canvas class='balls'>14</canvas> <canvas class='balls'>15</canvas>
+            <canvas class='balls'>16</canvas> <canvas class='balls'>17</canvas> <canvas class='balls'>18</canvas> <canvas class='balls'>19</canvas> <canvas class='balls'>20</canvas>
+            <canvas class='balls'>21</canvas>
+            <canvas class='balls'>1</canvas> <canvas class='balls'>2</canvas> <canvas class='balls'>3</canvas> <canvas class='balls'>4</canvas> <canvas class='balls'>5</canvas>
+            <canvas class='balls'>6</canvas> <canvas class='balls'>7</canvas> <canvas class='balls'>8</canvas> <canvas class='balls'>9</canvas> <canvas class='balls'>10</canvas>
+            <canvas class='balls'>11</canvas> <canvas class='balls'>12</canvas> <canvas class='balls'>13</canvas> <canvas class='balls'>14</canvas> <canvas class='balls'>15</canvas>
+            <canvas class='balls'>16</canvas> <canvas class='balls'>17</canvas> <canvas class='balls'>18</canvas> <canvas class='balls'>19</canvas> <canvas class='balls'>20</canvas>
+            <canvas class='balls'>21</canvas>
+            <canvas class='balls'>1</canvas> <canvas class='balls'>2</canvas> <canvas class='balls'>3</canvas> <canvas class='balls'>4</canvas> <canvas class='balls'>5</canvas>
+            <canvas class='balls'>6</canvas> <canvas class='balls'>7</canvas> <canvas class='balls'>8</canvas> <canvas class='balls'>9</canvas> <canvas class='balls'>10</canvas>
+            <canvas class='balls'>11</canvas> <canvas class='balls'>12</canvas> <canvas class='balls'>13</canvas> <canvas class='balls'>14</canvas> <canvas class='balls'>15</canvas>
+            <canvas class='balls'>16</canvas> <canvas class='balls'>17</canvas> <canvas class='balls'>18</canvas> <canvas class='balls'>19</canvas> <canvas class='balls'>20</canvas>
+            <canvas class='balls'>21</canvas>
+            <canvas class='balls'>1</canvas> <canvas class='balls'>2</canvas> <canvas class='balls'>3</canvas> <canvas class='balls'>4</canvas> <canvas class='balls'>5</canvas>
+            <canvas class='balls'>6</canvas> <canvas class='balls'>7</canvas> <canvas class='balls'>8</canvas> <canvas class='balls'>9</canvas> <canvas class='balls'>10</canvas>
+            <canvas class='balls'>11</canvas> <canvas class='balls'>12</canvas> <canvas class='balls'>13</canvas> <canvas class='balls'>14</canvas> <canvas class='balls'>15</canvas>
+            <canvas class='balls'>16</canvas> <canvas class='balls'>17</canvas> <canvas class='balls'>18</canvas> <canvas class='balls'>19</canvas> <canvas class='balls'>20</canvas>
+            <canvas class='balls'>21</canvas>
+            <canvas id='pingball' width="40" height="40">00</canvas>
+            <canvas id='bottomBar' width="200" height="20">FF</canvas>
+        </div>
+        <div id="configBox">
+            <div id="stateBoxRight">Waiting</div>
+            <div id="scoreBox">
+                <p class="scoreBoxClass" id='scoreBoxLeft'>Score:</p>
+                <p class="scoreBoxClass" id='scoreBoxRight'>000</p>
+            </div>
+            <div id='timeBox'>
+                <p class="timeBoxClass" id="timeBoxLeft">Time:</p>
+                <p class="timeBoxClass" id="timeBoxRight">00:00:00</p>
+            </div>
+            <div id='stateBox'>
+                <p class="stateBoxClass" id='stateBoxLeft'>State:</p>
+                <p class="stateBoxClass" id='levelBoxLeft'>Level</p>
+                <p class="stateBoxClass" id='levelBoxRight'>1</p>
+            </div>
+            <div id='numBox'>
+                <p class="numBoxClass" id='numBoxLeft'>Left Balls:</p>
+                <p class="numBoxClass" id='numBoxRight1'>20</p>
+                <p class="numBoxClass" id='numBoxRight2'>/</p>
+                <p class="numBoxClass" id='numBoxRight3'>40</p>
+            </div>
+            <div id='levelControlBox'>
+                <p id='levelControlText' style="display: inline;">Level：</p>
+                <p style="display: inline;">
+                    <select id='levelControlSelect' >
+                        <option value="1">1</option>
+                        <option value='2'>2</option>
+                    </select>
+                </p>
+                <p style="display: inline;">
+                    <button id="levelControlButton">Enter</button>
+                </p>
+            </div>
+            <div id='controlBox'>
+                <button id='beginButton'>Begin</button>
+                <button id="pauseButton">Pause</button>
+                <button id="resetButton">Reset</button>
+            </div>
+            <div id='keyExplainBox'>
+                <p>Key Explaination:</p>
+                <p>"Up" Key --> Begin</p>
+                <p>"Down" Key --> Pause</p>
+                <p>"Left" Key --> Move Left</p>
+                <p>"Right" Key --> Move Right</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div id="endBox">
+            <p style="text-align: right;">Pingball Game<br/>Version 1.00<br/>Copyright &copy Kaimobile</p>
+        </div>
+    </footer>
+</body>
+<script>
+    /***************** Configure the position .etc *******************/
+    ballsWidth = 40;
+    pingballWidth = 40;
+    bottomBarWidth = 180;
+    bottomBarHeight = 20;
+    mainBoxWidth = 1000;
+    mainBoxHeight = 600;
+    pingballSpeed = 1;
+    buttomBarSpeed = 30;
+    /*mainBoxLeft = Math.round((document.documentElement.clientWidth - mainBoxWidth)/2);
+    mainBoxRight = mainBoxLeft + mainBoxWidth;
+    mainBoxTop = 0;
+    mainBoxBottom = mainBoxHeight - mainBoxTop;*/
+    
+    /****************** Import Important Object *******************/
+
+    beginButtonObj = document.getElementById('beginButton');
+    pauseButtonObj = document.getElementById('pauseButton');
+    resetButtonObj = document.getElementById('resetButton');
+    enterButtonObj = document.getElementById('levelControlButton');
+
+    bottomBarObj = document.getElementById('bottomBar');        
+    pingballObj = document.getElementById('pingball');
+    
+    /****************** Init the Game *****************************/
+    initGame();
+
+    /************************** Level Control *********************/
+
+    //Name:         initLevel()
+    //Description:  Set selection 1 as default
+    //Input:        NULL
+    //Output:       ballsLevel,             current selected level
+    //              *ballsLevel,            current selected level
+    function initLevel(){
+        document.getElementById('levelControlSelect')[0].selected = true;
+        return getLevel();
+    }
+    
+    //Name:         getLevel()
+    //Description:  get the current select and return
+    //Input:        NULL
+    //Output:       value,                  current selected level
+    //              *ballsLevel,            give current selected level to "ballsLevel"
+    function getLevel(){
+        var obj = document.getElementById('levelControlSelect');
+        var index = obj.selectedIndex;
+        var value = eval(obj.options[index].value);
+        //give the current selection to "ballsLevel"
+        ballsLevel = value;
+        return value;
+    }
+
+
+    /********************Set for balls****************************/
+
+    //Name:         levelOne()
+    //Description:  Create levelOne ballsArray and return
+    //              Count "ballsall" and "ballsleft"
+    //Input:        *ballsWidth             parameter
+    //Output:       balls configure array
+    //              *ballsXMargin
+    //              *ballsYMargin
+    //              *ballsall
+    //              *ballsleft
+    function levelTwo(){
+        ballsXMargin = 7;
+        ballsYMargin = 3;
+        ballsall = 0;
+        var tempArray = new Array();
+        //Create 5 rows for the array and the balls
+        for(i=0;i<5;i++){
+            tempArray[i] = new Array();
+            //Each row has up to 21 balls
+            for(j=0;j<21;j++){
+                tempArray[i][j] = new Object();
+                tempArray[i][j].x =  (ballsWidth + ballsXMargin) * j;
+                tempArray[i][j].y =  (ballsWidth + ballsYMargin) * i;
+                tempArray[i][j].life = 1;
+                //Count for balls in this level
+                ballsall += 1;
+            }
+        }
+        //At first, ballsleft equals ballsall
+        ballsleft = ballsall;
+        return tempArray;
+    }
+    function levelOne(){
+        ballsXMargin = 8;
+        ballsYMargin = 3;
+        ballsall = 0;
+        var tempArray = new Array();
+        //Create 5 rows for the array and the balls
+        for(i=0;i<5;i++){
+            tempArray[i] = new Array();
+            //Each row has up to 21 balls
+            for(j=0;j<21;j++){
+                tempArray[i][j] = new Object();
+                tempArray[i][j].x =  (ballsWidth + ballsXMargin) * j;
+                tempArray[i][j].y =  (ballsWidth + ballsYMargin) * i;
+                if(i == 2){
+                    tempArray[i][j].life = 0;
+                }else{
+                    tempArray[i][j].life = 1;
+                    ballsall += 1;
+                }
+                //Count for balls in this level
+                
+            }
+        }
+        //At first, ballsleft equals ballsall
+        ballsleft = ballsall;
+        return tempArray;
+    }
+    //Name:         levelChoose()
+    //Description:  Choose the level, Use the correspond function and return the ballsArray
+    //Input:        levelin,                a number which you want to choose
+    //Output:       ballsArray,             the correspond array
+    function levelChoose(levelin){
+        switch(levelin){
+            case 1:
+                return levelOne();
+                break;
+            case 2:
+                return levelTwo();
+                break;
+            default:
+                return levelTwo();
+                break;
+        }
+    }
+
+    //Name:         initBalls()
+    //Description   initialization for balls
+    //Input:        level,                  a number which you want to choose
+    //              *ballsWidth             parameter
+    //Output:       *ballsArray
+    function initBalls(level){
+        //Get the ballsArray firstly
+        ballsArray = levelChoose(level);
+        //Loop in all balls elements
+        for(i=0;i<document.getElementsByClassName('balls').length;i++){
+            var c = document.getElementsByClassName('balls')[i];
+            //Set each canvas size
+            c.width = ballsWidth;
+            c.height = ballsWidth;
+            //Set each canvas position 
+            c.style.left = ballsArray[Math.floor(i/21)][i%21].x;
+            c.style.top = ballsArray[Math.floor(i/21)][i%21].y;
+            //Set if the canvas is visible
+            if(ballsArray[Math.floor(i/21)][i%21].life < 1){
+                c.style.visibility = 'hidden';
+            }else{
+                c.style.visibility = 'visible';
+            }
+            //Set the ball in the canvas
+            var cxt = c.getContext('2d');
+            cxt.fillStyle = '#f32966';
+            cxt.beginPath();
+            cxt.arc(Math.floor(ballsWidth/2),Math.floor(ballsWidth/2),Math.floor(ballsWidth/2),0,Math.PI*2,true);
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+    
+
+    /************************** Set for bottomBar ******************************/
+
+    //Name:         initBottomBar()
+    //Description:  initialization for bottomBar
+    //Input:        *bottomBarObj           object
+    //              *mainBoxHeight          parameter
+    //              *mainBoxWidth           parameter
+    //              *bottomBarHeight        parameter
+    //              *bottomBarWidth         parameter
+    //              *pingballWidth          parameter
+    //Output:       NULL
+    function initBottomBar(){
+        bottomBarObj.style.top = mainBoxHeight - bottomBarHeight - pingballWidth;
+        bottomBarObj.style.left = Math.round((mainBoxWidth - bottomBarWidth) / 2);
+        bottomBarObj.setAttribute('width',bottomBarWidth);
+        bottomBarObj.setAttribute('height',bottomBarHeight);
+        var bottomBarObjxt = bottomBarObj.getContext('2d');
+        bottomBarObjxt.fillStyle='#f9bad6';
+        bottomBarObjxt.fillRect(0,0,bottomBarWidth,bottomBarHeight);
+    }
+    
+
+    /************************* Initialization for pingball ******************************/
+
+    //Name:         initPingball()
+    //Description:  initialization for pingball
+    //Input:        *pingballObj            object
+    //              *bottomBarObj           object
+    //              *pingballWidth          parameter
+    //              *bottomBarWidth         parameter
+    //Output:       NULL
+    function initPingball(){
+        pingballObj.style.top = parseInt(bottomBarObj.style.top) - pingballWidth;
+        pingballObj.style.left = parseInt(bottomBarObj.style.left) + Math.round((bottomBarWidth - pingballWidth)/2);
+        var pingballObjxt = pingballObj.getContext('2d');
+        pingballObjxt.fillStyle = '#f279ae';
+        pingballObjxt.beginPath();
+        pingballObjxt.arc(Math.floor(pingballWidth/2),Math.floor(pingballWidth/2),Math.floor(pingballWidth/2),0,Math.PI*2,true);
+        pingballObjxt.closePath();
+        pingballObjxt.fill();
+    }
+
+    /******************************* Display Control **********************/
+
+    /**********State Display**********/
+    //Name:         initStatus()
+    //Description:  Reset statusCode at first and display the status Text
+    //Input:        NULL
+    //OUtput:       *statusCode
+    function initStatus(){
+        statusChange(0);
+    }
+
+    //Name:         statusChange()
+    //Description:  Change the "statusCode" and display the text
+    //Input:        condein                state number
+    //Output:       *statusCode
+    function statusChange(codein){
+        statusCode = codein;
+        var sobj = document.getElementById('stateBoxRight');
+        switch(codein){
+            case 0:
+                //For new game or after reset
+                sobj.innerHTML = 'Click Begin to play';
+                break;
+            case 1:
+                //Normal status
+                sobj.innerHTML = 'Playing';
+                break;
+            case 2:
+                //pausing status
+                sobj.innerHTML = 'Pausing';
+                break;
+            case 3: 
+                //After you click enter
+                sobj.innerHTML = 'Reset Please';
+                break;
+            case 4:
+                //Game Over
+                sobj.innerHTML = 'GG';
+                break;
+            case 5:
+                //Pass the Game
+                sobj.innerHTML = 'Pass the level'
+                break;
+        }
+    }
+
+    /**********PlayScore Display**********/
+    //Name:         initPlayScore()
+    //Description:  display the zero playScore at first
+    //Input:        NULL
+    //output:       *playScore
+    function initPlayScore(){
+        playScore = 0;
+        var sobj = document.getElementById('scoreBoxRight');
+        sobj.innerHTML = scoreChange(playScore);
+    }
+
+    //Name:         movePlayScore()
+    //Description:  change the score and display
+    //Input:        *playScore
+    //Output:       *playScore              changed playScore
+    function movePlayScore(){
+        var sobj = document.getElementById('scoreBoxRight');
+        playScore += 3;
+        sobj.innerHTML = scoreChange(playScore);
+    }
+
+    //Name:         scoreChange()
+    //Description:  change the score into three digits
+    //Input:        scorein,                score input
+    //OUtput:       scorein,                score processed
+    function scoreChange(scorein){
+        if(scorein < 10){
+            return '00' + scorein;
+        }else if(scorein < 100){
+            return '0' + scorein;
+        }else{
+            return scorein;
+        }
+    }
+    
+    /**********Time Display**********/
+    //Name:         initPlayTime()
+    //Description:  Set the playTime to zero, initialization for play time
+    //Input:        NULL
+    //Output:       *playTime,              time you have played
+    function initPlayTime(){
+        //Create the variable "playTime", Because fuction "moveTime()" will add one to "playTime", So "playTime" equals -1 to keep initial time zero
+        playTime = -1;
+        //"playTime" add one and become zero, Then display "playTime" 
+        movePlayTime();
+    }
+
+    //Name:         resetPlayTime()
+    //Description:  Set the playTime to zero, Stop the timer
+    //Input:        ?playTimeTimer,         the timer control the "playTime"
+    //Output:       *playTime,              time you have played
+    function resetPlayTime(){
+        initPlayTime();
+        pausePlayTime();
+    }
+
+    //Name:         pausePlayTime()
+    //Description:  Pause the playTime
+    //Input:        ?playTimeTimer
+    //Output:       NULL
+    function pausePlayTime(){
+        if(typeof(playTimeTimer) != 'undefined'){
+            clearInterval(playTimeTimer);
+        }
+    }
+
+    //Name:         movePlayTime()
+    //Description:  add one to the "playTime" and display "playTime"
+    //Input:        *playTime
+    //Output:       *playTime               changed playTime
+    function movePlayTime(){
+        playTime += 1;
+        var hour = timeChangeToTwoDigits(Math.floor(playTime/3600));
+        var minute = timeChangeToTwoDigits(Math.floor((playTime%3600)/60));
+        var second = timeChangeToTwoDigits(playTime % 60);
+        //timeBoxRightObj = document.getElementById('timeBoxRight');
+        var tobj = document.getElementById('timeBoxRight');
+        tobj.innerHTML = hour + ':' + minute + ':' + second;
+    }
+
+    //Name:         timeChangeToTwoDigits()
+    //Description:  Change the time into two digits
+    //Input:        timein,   
+    //Output:       timein,
+    function timeChangeToTwoDigits(timein){
+        if(timein < 10){
+            return '0'+timein;
+        }else{
+            return timein;
+        }
+    }
+
+    /**********ballsLevel Display**********/
+    //Name:         levelDisplay()
+    //Description:  Display the input level
+    //Input:        levelin
+    //Output:       NULL
+    function levelDisplay(levelin){
+        var obj = document.getElementById('levelBoxRight');
+        obj.innerHTML = levelin;
+    }
+
+    //Name:         initLevelDisplay()
+    //Description:  default the selection and display it
+    //Input:        NULL
+    //Output:       *ballsLevel
+    function initLevelDisplay(){
+        levelDisplay(initLevel());
+    }
+    
+    /*********ballsall and ballsleft Display**********/
+    //Name:         initBallsNum()
+    //Description:  display the current ballsall and ballsleft
+    //Input:        *ballsall
+    //              *ballsleft
+    //Output:       NULL
+    function initBallsNum(){
+        //change the balls number which is display
+        var numobj = document.getElementById('numBoxRight3');
+        numobj.innerHTML = ballsall;
+        //At first, ballsleft equals ballsall and display
+        var numleftobj = document.getElementById('numBoxRight1');
+        numleftobj.innerHTML = ballsleft;
+    }
+
+    //Name:         moveBallsleft()
+    //Description:  substract "ballsleft" and display it
+    //Input:        *ballsleft
+    //Output:       NULL
+    function moveBallsleft(){
+        var nobj = document.getElementById('numBoxRight1');
+        ballsleft --;
+        nobj.innerHTML = ballsleft;
+    }
+
+    /************************** Move pingball ****************************/
+    //Name:         initPingballMove()
+    //Description:  give speed to x-axis and y-axis
+    //Input:        *pingballSpeed
+    //Output:       *pingballXSpeed
+    //              *pingballYSpeed
+    function initPingballMove(){
+        pingballXSpeed = pingballSpeed;
+        pingballYSpeed = pingballSpeed;
+    }
+
+    //Name:         resetPingballMove()
+    //Description:  reset x/y speed and stop the ball
+    //Input:        *pingballSpeed
+    //              ?pingballTimer
+    //Output:       *pingballXSpeed
+    //              *pingballYSpeed
+    function resetPingballMove(){
+        initPingballMove();
+        pausePingballMove();
+    }
+
+    //Name:         pausePingballMove()
+    //Description:  pause the ballmove
+    //Input:        ?pingballTimer
+    //Output:       NULL
+    function pausePingballMove(){
+        if(typeof(pingballTimer) != 'undefined'){
+            clearInterval(pingballTimer);
+        }
+    }
+    
+    function movePingball(){
+        if(parseInt(pingballObj.style.left) > (mainBoxWidth - pingballWidth)){
+            pingballXSpeed = -pingballXSpeed;
+        }else if(parseInt(pingballObj.style.left) < 0){
+            pingballXSpeed = -pingballXSpeed;
+        }else if(parseInt(pingballObj.style.top) < 5*(ballsWidth+ballsYMargin)){
+            if(parseInt(pingballObj.style.top) < 0){
+                pingballYSpeed = -pingballYSpeed;
+            }else if(tellIfPing(parseInt(pingballObj.style.left),parseInt(pingballObj.style.top))){
+            pingballYSpeed = -pingballYSpeed;
+            }
+        }else if(parseInt(pingballObj.style.top) > (parseInt(bottomBarObj.style.top) - pingballWidth)){
+            if(parseInt(bottomBarObj.style.left) < parseInt(pingballObj.style.left) && parseInt(pingballObj.style.left) < parseInt(bottomBarObj.style.left) + bottomBarWidth){
+                pingballYSpeed = -pingballYSpeed;
+            }else{
+                //pingballYSpeed = -pingballYSpeed;
+                goodGame();
+            }
+        }
+        pingballObj.style.left = parseInt(pingballObj.style.left) + pingballXSpeed;
+        pingballObj.style.top = parseInt(pingballObj.style.top) + pingballYSpeed;
+        if(ballsleft == 0){
+            passGame();
+        }
+    }
+
+    //create ball position 
+    //Change the score
+    //Change the ballsleft
+    function tellIfPing(xpx,ypx){
+        var tempi = Math.floor((xpx)/(pingballWidth+ballsXMargin));
+        var tempj = Math.floor((ypx)/(pingballWidth+ballsYMargin));
+        if (ballsArray[tempj][tempi].life < 1){
+            //No balls
+            return 0;                                   
+        }else{
+            ballsArray[tempj][tempi].life -= 1;
+            var tempc = document.getElementsByClassName('balls')[tempj*21+tempi];
+            tempc.style.visibility = 'hidden';
+            //Add the score and change the score display
+            movePlayScore();
+            //Substract the ballsleft
+            moveBallsleft();
+            //ping back
+            return 1;                                   
+        }
+    }
+    /******************** Game Process Code ********************/
+    //Name:         initGame()
+    //Description:  initialize the Game
+    //Input:        NULL
+    //Output:       *ballsLevel
+    //              *ballsXMargin
+    //              *ballsYMargin
+    //              *ballsall
+    //              *ballsleft
+    //              *ballsArray
+    //              *playScore
+    //              *playTime
+    //              *pingballXSpeed
+    //              *pingballYSpeed
+    function initGame(){
+        //initialize the selection to default(eg: level 1)
+        //get the "ballsLevel"
+        initLevel();
+        //initialize the balls
+        //get the "ballsXMargin", "ballsYMargin", "ballsall", "ballsleft", "ballsArray"
+        //need "ballsLevel" befor
+        initBalls(ballsLevel);
+        //initialize the bottomBar
+        initBottomBar();
+        //initialize the pingball
+        initPingball();
+        //initialize the status and display
+        initStatus();
+        //initialize the "playScore" and display
+        //get "playScore"
+        initPlayScore();
+        //initialize the "playTime" and display
+        //get "playTime"
+        initPlayTime();
+        //initialize the "ballsLevel" again and display
+        initLevelDisplay();
+        //display "ballsall" and "ballsleft"
+        //need "ballsall" and "ballsleft" befor
+        initBallsNum();
+        //initialize the "pingballXSpeed" and "pingballYSpeed"
+        //get "pingballXSpeed" and "pingballYSpeed"
+        initPingballMove();
+    }
+
+    //Name:         resetGame()
+    //Description:  reset the Game
+    //Input:        NULL
+    //Output:       *ballsLevel
+    //              *ballsXMargin
+    //              *ballsYMargin
+    //              *ballsall
+    //              *ballsleft
+    //              *ballsArray
+    //              *playScore
+    //              *playTime
+    //              *pingballXSpeed
+    //              *pingballYSpeed
+    function resetGame(){
+        //different from initGame(), remove the initialization the default selection
+        getLevel();
+        initBalls(ballsLevel);
+        initBottomBar();
+        initPingball();
+        initStatus();
+        initPlayScore();
+        //different from initGame(), add clear timeinterval
+        resetPlayTime();
+        //different from initGame(), remove the initialzation the default selection
+        levelDisplay(ballsLevel);
+        initBallsNum();
+        //different from initGame(), add clear timeinterval
+        resetPingballMove();
+    }
+
+    function goodGame(){
+        pausePlayTime();
+        pausePingballMove();
+        statusChange(4);
+    }
+
+    function passGame(){
+        pausePlayTime();
+        pausePingballMove();
+        statusChange(5);
+        initBalls(++ballsLevel);
+        initBottomBar();
+        initPingball();
+        levelDisplay(ballsLevel);
+        initBallsNum();
+    }
+    /************************** Keyboard Control **************************/
+    
+    document.onkeydown = function(event){
+        kc = event.keyCode;
+        if(kc == 38){
+            //Press up key ==> Begin
+            beginButtonObj.click();
+        }else if(kc == 40){
+            //Press down key ==> Pause
+            pauseButtonObj.click();
+        }else if(statusCode == 1){
+            if(kc == 37 && (parseInt(bottomBarObj.style.left) - buttomBarSpeed) >= 0){
+                bottomBarObj.style.left = parseInt(bottomBarObj.style.left) - buttomBarSpeed;
+            }else if(kc == 39 && (parseInt(bottomBarObj.style.left)+buttomBarSpeed) <= (mainBoxWidth - bottomBarWidth)){
+                bottomBarObj.style.left = parseInt(bottomBarObj.style.left) + buttomBarSpeed;
+            }
+        }
+    }
+
+    /************************** Buttons **********************************/
+
+    /**********Begin button**********/
+    beginButtonObj.onclick = function(){
+        var tempArr = [0,2,5];
+        if(tempArr.indexOf(statusCode) != -1){
+            //Set the ball to move
+            pingballTimer = setInterval(movePingball,5);
+            //Change the status
+            statusChange(1);
+            //Set the play time
+            playTimeTimer = setInterval(movePlayTime,1000);
+        }else if(statusCode == 4){
+            var sobj = document.getElementById('stateBoxRight');
+            sobj.innerHTML = "GG, Please Reset"
+        }
+        
+    }
+
+    /**********Pause button**********/
+    pauseButtonObj.onclick = function(){
+        var tempArr = [0,1];
+        if(tempArr.indexOf(statusCode) != -1){
+            //Set the ball to pause
+            pausePingballMove();
+            //Change the status
+            statusChange(2);
+            //Set the play time
+            pausePlayTime();
+        }
+    }
+    
+    /**********Reset Button**********/
+    resetButtonObj.onclick = function(){
+        //ballsLevel = initLevel();                 //No need to get from select
+        resetGame(ballsLevel);
+    }
+
+    /**********Enter Buttons**********/
+    enterButtonObj.onclick = function(){
+        //Get the level in the selection and give it to "ballsLevel"
+        ballsLevel = getLevel();
+        //Change the status
+            /*stateBoxRightObj.innerHTML = 'Please click Reset';*/
+        statusChange(3);
+    }
+
+
+</script>
+</html>
+<!--
+    1.添加触屏/鼠标移动支持
+    2.添加下落道具、使用道具
+    3.优化碰撞算法
+    4.更多关卡
+    5.球的寿命增加，根据寿命确定颜色
+    6.增加随机因素，如偏转角度
+    7.修复挡板无法靠近最边缘
+    8.四个挡板弹力球
+    LOG
+V0090   20180814
+    1.游戏实现碰撞基本功能
+V0100   20180817
+    1.增加侧边栏，侧边栏添加状态、分数、时间、剩球数、当前关卡等显示
+    2.增加选关、开始、暂停、重置
+    3.修复部分通关、GG等逻辑
+    4.添加按键提示，增加按键控制
+    5.优化大量代码，程序逻辑性增强
+-->
